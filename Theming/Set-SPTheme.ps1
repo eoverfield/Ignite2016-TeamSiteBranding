@@ -71,7 +71,7 @@ try
 
 	$rootPath = $targetSiteUrl.Substring($targetSiteUrl.IndexOf('/',8))
 	$colorPaletteUrl = "$rootPath/_catalogs/theme/15/custom.theme.spcolor"
-	$bgImageUrl = "$rootPath/Site Assets/custom.theme.bg.jpg"
+	$bgImageUrl = "$rootPath/SiteAssets/custom.theme.bg.jpg"
 
 	Write-Host -ForegroundColor White "Setting composed look for $($targetWebUrl)"
 

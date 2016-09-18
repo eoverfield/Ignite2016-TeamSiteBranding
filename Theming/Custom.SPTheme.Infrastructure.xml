@@ -5,7 +5,7 @@
     <pnp:ProvisioningTemplate ID="REGISTER-USER-ACTION-INFRASTRUCTURE" Version="1">
       <pnp:Files>
         <pnp:File Src="custom.theme.spcolor" Folder="_catalogs/theme/15" Overwrite="true" />
-        <pnp:File Src="custom.theme.bg.jpg" Folder="Site Assets" Overwrite="true" />
+        <pnp:File Src="custom.theme.bg.jpg" Folder="SiteAssets" Overwrite="true" />
       </pnp:Files>
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
