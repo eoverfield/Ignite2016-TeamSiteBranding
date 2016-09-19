@@ -51,7 +51,9 @@ gulp.task('serve', ['styles'], () => {
     server: {
       baseDir: ['app'],
       routes: {
-        '/SiteAssets': '../'
+        '/SiteAssets': './templates/SiteAssets',
+        '/styles': './templates/MasterPageGallery/css',
+        '/js': './templates/MasterPageGallery/js',
       }
     },
     https: true

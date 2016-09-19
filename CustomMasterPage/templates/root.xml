@@ -10,7 +10,6 @@
 			<pnp:Property Key="FileLeafRef" Value="contoso.master"/>
             <pnp:Property Key="Title" Value="Contoso Team Site Master Page"/>
             <pnp:Property Key="MasterPageDescription" Value="Contoso Team Site Master Page"/>
-            <pnp:Property Key="HtmlDesignAssociated" Value="FALSE"/>
             <pnp:Property Key="UIVersion" Value="[&quot;15&quot;]"/>
             <pnp:Property Key="ContentTypeId" Value="0x0101000F1C8B9E0EB4BE489F09807B2C53288F0054AD6EF48B9F7B45A142F8173F171BD1" />
 		 </pnp:Properties>
