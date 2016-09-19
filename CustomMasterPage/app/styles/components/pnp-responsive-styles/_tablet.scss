@@ -1,0 +1,100 @@
+
+/* Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* Sidebar navigation toggling */
+  #titleAreaBox {
+    position: relative;
+    padding-left: 30px;
+  }
+  #contentRow {
+    /* Start out as collapsed */
+    margin-left: -200px;
+  }
+  .ms-dialog #contentRow {
+    /* Make sure this is not applied to dialog windows */
+    margin-left: 0;
+  }
+  body.shownav {
+    #contentRow {
+      margin-left: 0;
+      margin-right: -200px;
+    }
+    #siteIcon {
+      min-width: 150px;
+      text-align: right;
+    }
+  }
+  .ms-navedit-editSpan {
+    margin-bottom: 25px;
+    display: block;
+  }
+  #DeltaTopNavigation {
+    display: none;
+  }
+  /* Stack title area */
+  div {
+    &#titleAreaBox, &#titleAreaRow {
+      display: block;
+      margin: 0;
+    }
+    &#titleAreaBox {
+      margin-left: 10px;
+    }
+    &#titleAreaRow > div {
+      display: block;
+    }
+  }
+  #siteIcon, .ms-siteicon-img, .ms-siteicon-a, #s4-titlerow {
+    height: 75px;
+  }
+  div {
+    &#DeltaPlaceHolderSearchArea {
+      float: left;
+    }
+    &#searchInputBox {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+  .ms-core-listMenu-horizontalBox {
+    ul, li, .ms-core-listMenu-item, > ul > li > table {
+      display: block;
+    }
+  }
+  .ms-breadcrumb-box {
+    height: auto;
+  }
+  /* Main content panel */
+  table {
+    &#layoutsTable {
+      display: block;
+      > tbody {
+        display: block;
+        > tr {
+          display: block;
+          > td {
+            display: block;
+            width: auto !important;
+            padding: 0;
+          }
+        }
+      }
+    }
+    &.ms-listviewtable {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  }
+  td {
+    &.ms-cellstyle {
+      padding: 2px;
+      vertical-align: top;
+    }
+    &[role=gridcell] .ms-noWrap {
+      white-space: normal;
+    }
+    &.ms-cellstyle .ms-list-itemLink {
+      height: auto;
+    }
+  }
+}

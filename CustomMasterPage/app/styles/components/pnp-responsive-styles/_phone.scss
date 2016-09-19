@@ -1,0 +1,186 @@
+/* Smartphones */
+@media screen and (max-width: 480px) {
+  div {
+    &#s4-bodyContainer {
+      width: auto !important;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-size: 1.1em;
+    }
+    &#titleAreaBox {
+      display: block;
+      margin: 0;
+    }
+    &#titleAreaRow {
+      display: block;
+      margin: 0;
+      > div {
+        display: block;
+        float: none;
+        clear: both;
+        margin: 0;
+      }
+      .ms-core-pageTitle {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+  /* Stack logo, top nav and search */
+  #DeltaTopNavigation {
+    display: none;
+  }
+  div#titleAreaRow > div#siteIcon {
+    margin-bottom: 25px;
+  }
+  .ms-siteicon-img {
+    max-width: 250px;
+    max-height: 100px;
+  }
+  div#s4-titlerow, .ms-breadcrumb-box {
+    height: auto;
+  }
+  div {
+    &.ms-mpSearchBox {
+      float: none;
+      margin: 10px 0;
+      /*left: -10px;
+      position: relative;*/
+      width: auto;
+    }
+    &.ms-srch-sb > input {
+      width: 80%;
+    }
+    &#searchInputBox {
+      float: none;
+      height: 22px;
+      display: block;
+      div.ms-srch-sb {
+        float: none;
+        height: 22px;
+        display: block;
+        > a {
+          float: right;
+        }
+      }
+    }
+  }
+  /* Title breadcrumb */
+  #pageTitle {
+    #DeltaPlaceHolderPageTitleInTitleArea > span > span {
+      &:not(:last-child-of-type) {
+        font-size: .4em;
+      }
+      &:last-child-of-type {
+        display: block;
+      }
+      > span > span {
+        height: 12px !important;
+      }
+    }
+    #DeltaPlaceHolderPageDescription {
+      display: none;
+    }
+  }
+  /* Breadcrumb navigation in title area */
+  .ms-core-listMenu-horizontalBox {
+    ul, li, .ms-core-listMenu-item {
+      display: block;
+    }
+    > {
+      ul > li > table {
+        display: block;
+      }
+      .ms-core-listMenu-root > .ms-listMenu-editLink {
+        margin-left: 0;
+      }
+    }
+  }
+  .ms-navedit-editSpan {
+    margin-bottom: 25px;
+    display: block;
+  }
+  #sideNavBox {
+    float: none;
+    clear: both;
+    width: auto;
+    margin-bottom: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 20px;
+    /* Start out as collapsed*/
+    max-height: 0;
+    overflow: hidden;
+  }
+  body.shownav div#sideNavBox {
+    max-height: 850px;
+    overflow: visible;
+  }
+  /* Main content panel */
+  #contentRow {
+    padding-top: 0;
+  }
+  #contentBox {
+    margin-top: 35px;
+    margin-right: 0;
+    margin-left: 0;
+    min-width: 0;
+  }
+  table {
+    &#layoutsTable {
+      display: block;
+      > tbody {
+        display: block;
+        > tr {
+          display: block;
+          > td {
+            display: block;
+            width: auto !important;
+            padding: 0;
+          }
+        }
+      }
+    }
+    &.ms-listviewtable {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  }
+  td {
+    &.ms-cellstyle {
+      padding: 2px;
+      vertical-align: top;
+    }
+    &[role=gridcell] .ms-noWrap {
+      white-space: normal;
+    }
+    &.ms-cellstyle .ms-list-itemLink {
+      height: auto;
+    }
+  }
+  /* Fix excessive width of document list view */
+  .ms-webpartPage-root {
+    border-spacing: 0;
+  }
+  /* Remove text from icon+text action buttons for document list view */
+  .ms-viewlsts .ms-vl-sectionHeaderRow {
+    .ms-splinkbutton-text {
+      display: none;
+    }
+    .ms-vl-settingsmarginleft {
+      margin-left: 5px;
+    }
+  }
+  /* Hide detail columns in document list view */
+  .ms-listviewtable {
+    thead tr th:nth-child(n+5), tbody tr td:nth-child(n+5) {
+      display: none;
+    }
+  }
+  .ms-qcb-button {
+    padding-right: 5px;
+  }
+  div.ms-dragDropAttract-subtle {
+    min-width: auto;
+  }
+}

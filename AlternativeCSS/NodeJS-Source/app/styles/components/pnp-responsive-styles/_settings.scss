@@ -1,0 +1,17 @@
+/* SETTINGS */
+.pnp-settingsdiv {
+  width: 250px;
+  display: inline-block;
+  vertical-align: top;
+  /* float: left; */
+  margin-right: 10px;
+  margin-bottom: 20px;
+
+  &:nth-last-child(0):after {
+    clear: both;
+  }
+  
+  IMG {
+    display: none;
+  }
+}

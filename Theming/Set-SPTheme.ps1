@@ -11,7 +11,7 @@ PS C:\> .\Set-SPTheme.ps1 -TargetWebUrl "https://intranet.mydomain.com/sites/tar
 
 .EXAMPLE
 PS C:\> $creds = Get-Credential
-PS C:\> .\Set-SPTheme.ps1 -TargetSiteUrl "https://intranet.mydomain.com/sites/targetSite" -MasterUrl "oslo.master" -Credentials $creds
+PS C:\> .\Set-SPTheme.ps1 -TargetWebUrl "https://intranet.mydomain.com/sites/targetSite" -MasterUrl "oslo.master" -Credentials $creds
 #>
 
 [CmdletBinding()]

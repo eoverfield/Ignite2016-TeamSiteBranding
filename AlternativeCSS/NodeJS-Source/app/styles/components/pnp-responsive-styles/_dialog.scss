@@ -1,0 +1,14 @@
+/* Make sure dialog windows don't break */
+
+.ms-dialog {
+  #contentRow {
+    margin-left: 0;
+  }
+  #contentBox {
+    margin-top: 0;
+  }
+  #s4-bodyContainer {
+    min-width: 0;
+    font-size: 1em;
+  }
+}
