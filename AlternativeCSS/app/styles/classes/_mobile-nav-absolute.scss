@@ -1,0 +1,16 @@
+// In mobile view, when mobile nav dropdown is used and is embedded in the header,
+// allow the header to dropdown
+// put it inside HEADER
+
+%mobile-nav-absolute
+{
+	position: absolute; // in mobile, absolutely position header, so mobile dropdown opens on top of content
+	z-index: 999;
+	width:100%;
+
+	@include respond-to($breakpoint-desktop, false, false) {
+		position:static; // position absolute reset in desktop
+		z-index:auto;
+		width: auto;
+	}
+}

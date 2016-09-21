@@ -10,24 +10,17 @@ const reload = browserSync.reload;
 
 //a list of all JS source to pull into header
 var jsSrc = [
-  'app/scripts/html5shiv.js',
-  'app/scripts/jquery-2.2.3.min.js',
-  'app/scripts/jquery.doubleTapToGo.js',
-  'app/scripts/IEconsoleLog.js',
-  'app/scripts/pxlml.responsive.js',        /* Make IE8 responsive */
-  'app/scripts/pxlml.browser.js',         /* browser detection and manipulation */
-  'app/scripts/pxlml.config.js',
-  'app/scripts/pxlml.webpart.js',         /* manipulates webpart DOM on sharepoint pages */
-  'app/scripts/pxlml.webpartEditor.js',         /* manipulates webpart DOM on sharepoint pages */
-  'app/scripts/debounce.js',
-  'app/scripts/pxlml.mobileui.js',
-  'app/scripts/responsive.content.js',
-  'app/scripts/custom.header.js'
+	'app/scripts/jquery-2.2.3.min.js',
+	'app/scripts/debounce.js',
+	'app/scripts/pxlml.console.js',
+	'app/scripts/pxlml.mobileui.js',
+	'app/scripts/pxlml.wiki.js',
+	'app/scripts/custom.header.js'
 ];
 
 //compile sass into final css
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss', {base:'app/styles'})
+  return gulp.src('./app/styles/*.scss', {base:'app/styles'})
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
@@ -38,7 +31,7 @@ gulp.task('styles', () => {
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.sourcemaps.write()) //comment this line if sourcemaps not needed
     .pipe($.concat('style.css'))
-    .pipe(gulp.dest('./templates/MasterPageGallery/css'))
+    .pipe(gulp.dest('./solution/templates/SiteAssets'))
     .pipe(reload({stream: true}));
 });
 
@@ -51,7 +44,7 @@ gulp.task('scripts', function() {
 //      "compress": false,
 //      "preserveComments": "all"
 //    }))
-    .pipe(gulp.dest('./templates/MasterPageGallery/js'));
+    .pipe(gulp.dest('./solution/templates/SiteAssets'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -64,9 +57,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     server: {
       baseDir: ['app'],
       routes: {
-        '/SiteAssets': './templates/SiteAssets',
-        '/styles': './templates/MasterPageGallery/css',
-        '/js': './templates/MasterPageGallery/js',
+        '/SiteAssets': './solution/templates/SiteAssets'
       }
     },
     https: true
@@ -82,5 +73,5 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 });
 
 gulp.task('default', ['clean'], () => {
-  gulp.start('serve');
+  //gulp.start('serve');
 });

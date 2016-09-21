@@ -1,0 +1,17 @@
+%td {
+
+	display: block;
+	float: left;
+
+	.ms-rte-wpbox, 
+	.pm-box { 
+		background: $reverse-color;
+		margin-bottom: 20px;
+		overflow-x: auto;
+		padding: 20px;
+	}
+
+	@include respond-to( false, $breakpoint-desktop, false){
+		width: 100% !important;
+	}
+}
