@@ -1,0 +1,105 @@
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.row, 
+.row *,
+.container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+.clearfix:after {
+  clear: both;
+}
+
+#contentBox {
+	min-width: 100px;
+}
+
+#contentRow {
+	width: 80%;
+	margin: 0 auto;
+
+	// left nav box 
+
+	.ms-core-sideNavBox-removeLeftMargin {
+		background: $color-secondary;
+		padding: 15px 0;
+	}
+
+}
+
+.ms-wikicontent {
+	#layoutsTable {
+		& > TBODY > TR {
+			display: block;
+			@extend .clearfix;
+
+			& > TD {
+				@extend .clearfix;
+				box-sizing: border-box;
+				@include respond-to( false, $breakpoint-desktop, false){
+					padding: 0;
+				}
+
+				.ms-rte-layoutszone-inner {
+					margin: 0;
+					border: 0;
+				}
+
+				.ms-qcb-zone { // doucment menu
+					white-space: inherit;
+				}
+			}
+
+			&.pm-layouttable-row-single { // if there is just one row, then this is the class on the row
+				& > TD {
+					display: block;
+
+					@extend %td;
+				}
+			}
+
+			&.pm-layouttable-row-1 { // this is the top row in a multiple-row layout
+				& > TD { 
+					display: block;
+					background: $reverse-color;
+					margin-bottom: 20px;
+
+					// if using bootstrap rows and columns inside the RTE area 
+					.row {
+						& > DIV {
+							padding: 20px 35px 20px 35px; // force rows and columns to line up with others
+						}
+					}
+				}
+			}
+
+			&.pm-layouttable-row-2 { // this is the three column section
+				& > TD {
+					
+
+					@extend %td;
+				}
+			}
+
+			&.pm-layouttable-row-3 { // this is the footer section
+				& > TD {
+					width: 100%;
+					@extend %td;
+				}
+
+			}
+
+		
+		}
+	}
+}

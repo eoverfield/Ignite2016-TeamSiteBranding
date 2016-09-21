@@ -1,0 +1,47 @@
+// converts media query rules into IE8 classes
+// This allows us to use the same CSS rule set to generate both IE8 and non-IE8 CSS files
+// without having to do major rewrites
+
+// $parent defaults to false - if you're writing a media query at the root level, this is false.
+
+$media-queries: true !default;
+$media-query-free-breakpoint: 900px;
+@mixin respond-to($min-width, $max-width: false, $parent:false) {
+	@if $media-queries {
+		@if $max-width {
+			@media (max-width: ($max-width - 1px)) { // subtracting 1px to avoid max-width/min-width respond-to collisions
+				@content
+			}
+		}
+		@else if $min-width {
+			@media screen and (min-width: $min-width) {
+				@content;
+			}
+		}
+	}
+
+ 	@else { // IE 8
+		@if $min-width == false { // max width rules
+			//@warn "FALSE MIN WIDTH.";
+			// for now, ignore max width rules - put a fake rule in to prevent some classes from breaking
+			.ie8-max-#{$max-width/1px}  & { // divide by 1px to remove 'px' from input
+				@content;
+			}
+		}
+		@else { // min width rules
+			@if $parent == true {
+				//@warn "#{$min-width} min width.";
+				.ie8-#{$min-width/1px}  & { // divide by 1px to remove 'px' from input
+					@content;
+
+				}
+			}
+			@else {
+				//@warn "#{$min-width} min width.";
+				.ie8-#{$min-width/1px} { // divide by 1px to remove 'px' from input
+					@content;
+				}
+			}
+		}
+ 	}
+}

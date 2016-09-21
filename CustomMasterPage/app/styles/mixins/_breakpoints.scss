@@ -1,0 +1,15 @@
+// Breakpoints
+// -------------------------------------------
+
+$breakpoint-ipad: 	 768px;
+$breakpoint-small-desktop: 992px;
+$breakpoint-desktop: 1200px;
+$breakpoint-large-desktop: 1500px;
+
+$breakpoints: (
+	"mobile":	"default",
+	"ipad":		$breakpoint-ipad,
+	"desktopsmall": $breakpoint-small-desktop,
+	"desktop":	$breakpoint-desktop,
+	"desktoplarge": $breakpoint-large-desktop
+);

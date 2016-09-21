@@ -1,2 +1,23 @@
 @import "../../src/bootstrap-4.0.0-alpha.4/scss/bootstrap-grid.scss";
 
+@import "variables/color-palette";
+
+@import "mixins/breakpoints";
+@import "mixins/respond-to";
+
+@import "classes/mobile-nav-absolute";
+@import "classes/td";
+
+@import "components/header";
+@import "components/navigation-left";
+
+@import "layouts/general";
+@import "layouts/home";
+@import "layouts/pm-edit-mode";
+
+#s4-bodyContainer {
+	background-color: $pagebg-color;
+	background-image: url('../SiteAssets/BlueGradBG.png');
+	background-repeat: repeat-x;
+	min-height: 100%;
+}

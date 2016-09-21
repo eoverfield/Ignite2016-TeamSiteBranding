@@ -1,0 +1,18 @@
+
+#sideNavBox {
+	.ms-core-navigation {
+		.ms-core-listMenu-item, 
+		.ms-core-listMenu-item:link, 
+		.ms-core-listMenu-item:visited {
+			color: $reverse-color;			// normal link
+		}
+
+
+		.ms-core-listMenu-selected:link, 
+		.ms-core-listMenu-selected:visited, 
+		.ms-core-listMenu-selected {
+			background: rgba(255,255,255,.2);	// selected link
+			color: $reverse-color;
+		}
+	}
+}

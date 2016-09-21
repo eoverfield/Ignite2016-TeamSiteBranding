@@ -1,0 +1,129 @@
+// Title row styles
+// ------------------------------------
+
+#s4-titlerow {
+	padding-top: 35px;
+
+	&:before {
+		display: block;
+		content: " ";
+		width: 10%;
+		height: 65px;
+		float: left;
+		background: url('../SiteAssets/GradLeft.png') repeat-y top right;
+	}
+
+	&:after {
+		display: block;
+		content: " ";
+		width: 10%;
+		height: 65px;
+		float: left;
+		background: url('../SiteAssets/GradRight.png') repeat-y top left;
+	}
+
+	#titleAreaBox {
+		width: 80%;
+		float: left;
+		background: rgba(255,255,255,0.9);
+		margin: 0;
+		position: relative;
+		height: 65px;
+	}
+
+	#DeltaSiteLogo {
+		padding: 5px 0 0 5px;
+	}
+
+	#pageTitle {
+		position: absolute;
+		top: 40px;
+		left: 63px;
+		font-size: 1em;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.navbar-toggle {
+		position: absolute;
+		top: 5px;
+		right: 0; 
+		background: transparent;
+		border: none;
+		font-size: 24px;
+		color: $link-color;
+		min-width: 0;
+		width: auto;
+
+		@include respond-to($breakpoint-desktop, false, false){
+			display: none !important;
+		}
+
+	}
+
+	#pm-topnav {
+		display: none;
+		float: right;
+		margin-top: 20px;
+		
+		@include respond-to($breakpoint-desktop, false, false){
+			display: block;
+		}
+
+		UL {
+			LI {
+				text-transform: uppercase;
+				color: $link-color;
+				font-size: 1.2em;
+
+				A, A:visited {
+					color: $link-color;
+				}
+			}
+		}
+
+		&.mobile.pm-active {
+
+			display: block;
+			@extend %mobile-nav-absolute;
+			top: 45px;
+			left: 0;
+			background: rgba(255,255,255,.9);
+
+			.ms-core-listMenu-horizontalBox {
+				display: block;
+			}
+
+			UL {
+				display: block;
+				padding-bottom: 10px;
+
+				LI {
+					display: block;
+					text-align: right;
+
+					A {
+						margin-right: 10px;
+						margin-bottom: 10px;
+					}
+				}
+			}
+			
+		}
+	}
+
+	#DeltaPlaceHolderSearchArea.ms-mpSearchBox {
+		position: absolute;
+		top: -29px;
+		right: 0;
+
+		.ms-srch-sb-border {
+			border: transparent;
+			background: rgba(255,255,255,.6);
+		}
+		.ms-srch-sb-borderFocused {
+			border: transparent;
+			background: #fff;
+		}
+	}
+}

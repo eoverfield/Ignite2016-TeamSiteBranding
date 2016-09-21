@@ -10,7 +10,19 @@ const reload = browserSync.reload;
 
 //a list of all JS source to pull into header
 var jsSrc = [
-  'app/scripts/custom/.js'
+  'app/scripts/html5shiv.js',
+  'app/scripts/jquery-2.2.3.min.js',
+  'app/scripts/jquery.doubleTapToGo.js',
+  'app/scripts/IEconsoleLog.js',
+  'app/scripts/pxlml.responsive.js',        /* Make IE8 responsive */
+  'app/scripts/pxlml.browser.js',         /* browser detection and manipulation */
+  'app/scripts/pxlml.config.js',
+  'app/scripts/pxlml.webpart.js',         /* manipulates webpart DOM on sharepoint pages */
+  'app/scripts/pxlml.webpartEditor.js',         /* manipulates webpart DOM on sharepoint pages */
+  'app/scripts/debounce.js',
+  'app/scripts/pxlml.mobileui.js',
+  'app/scripts/responsive.content.js',
+  'app/scripts/custom.header.js'
 ];
 
 //compile sass into final css
@@ -33,21 +45,22 @@ gulp.task('styles', () => {
 //bring together all script files
 gulp.task('scripts', function() {
   gulp.src(jsSrc)
-    .pipe($.concat('custom.level2branding.js'))
+    .pipe($.concat('header.js'))
 //    .pipe($.uglify({
 //      "mangle": false,
 //      "compress": false,
 //      "preserveComments": "all"
 //    }))
-    .pipe(gulp.dest('../'));
+    .pipe(gulp.dest('./templates/MasterPageGallery/js'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles'], () => {
+gulp.task('serve', ['scripts', 'styles'], () => {
   browserSync({
     notify: false,
     ui: false,
+    open:false,
     server: {
       baseDir: ['app'],
       routes: {
@@ -61,7 +74,7 @@ gulp.task('serve', ['styles'], () => {
 
   gulp.watch([
     'app/*.html',
-    'app/images/**/*'
+    'app/images/**/*',
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
