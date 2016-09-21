@@ -9,6 +9,12 @@
 	width:100%;
 
 	@include respond-to($breakpoint-desktop, false, false) {
+		width: 50%;
+		right: 0;
+		left: auto !important;
+	}
+
+	@include respond-to($breakpoint-large-desktop, false, false) {
 		position:static; // position absolute reset in desktop
 		z-index:auto;
 		width: auto;

@@ -76,16 +76,24 @@ var Pxlml = Pxlml || {};
 Pxlml.mobileUI = (function($) {
 	
 	var init = function() {
-		var $breadcrumbDropdown = $("#titleAreaRow .ms-breadcrumb-dropdownBox");
+		var $insertToggleAfter = $("#pm-topnav #DeltaTopNavigation");
 
 		hideOnDesktop();
 		
 		//add our responsive top navigation mobile buttom
-		$breadcrumbDropdown.after("<button class=\"navbar-toggle  o365cs-base\" type=\"button\"><span class=\"ms-Icon--menu ms-Icon\"></span></button>");
+		$insertToggleAfter.after("<button class=\"navbar-toggle  o365cs-base\" type=\"button\"><span class=\"ms-Icon--menu ms-Icon\"></span></button>");
 
 		$(".navbar-toggle").click(function() {
 			showItem($('#DeltaTopNavigation'));
 			setMenuHeight();
+		});
+
+		$("#search-toggle a").click(function(){
+			showItem($('#pm-search'));
+		});
+
+		$("#contact-toggle a").click(function(){
+			showItem($('#pm-contact'));
 		});
 	};
 
@@ -119,7 +127,7 @@ Pxlml.mobileUI = (function($) {
 			var $workspace = $("#s4-workspace");
 
 			//if mobile, ignore
-			if ($workspace.outerWidth(true) < 768)
+			if ($workspace.outerWidth(true) < 1500)
 				return;
 
         	hideItems();

@@ -20,29 +20,34 @@
   clear: both;
 }
 
+.sr-only { display: none; }
+
 #contentRow {
 	width: 80%;
 	margin: 0 auto;
+
 
 	// left nav box 
 	.ms-core-sideNavBox-removeLeftMargin {
 		background: $color-secondary;
 		padding: 15px 0;
 
-		@media screen and (max-width: 768px) {
+		@include respond-to( false, $breakpoint-ipad, false){
 			margin-left: 0px;
 		}
 	}
 
-	@media screen and (max-width: 768px) {
+	@include respond-to( false, $breakpoint-ipad, false){
 		width: auto;
 	}
 }
 
 #contentBox {
 	min-width: 100px;
+	margin-right: 0;
+	margin-left: 0; // override SP margin because using bootstrap
 
-	@media screen and (max-width: 768px) {
+	@include respond-to( false, $breakpoint-ipad, false){
 		display: block;
 		width: auto;
 		float: none;
@@ -66,6 +71,8 @@
 }
 
 .ms-wikicontent {
+	padding-right: 0 !important;
+
 	#layoutsTable {
 		& > TBODY > TR {
 			display: block;

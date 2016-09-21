@@ -8,8 +8,12 @@
 @import "classes/mobile-nav-absolute";
 @import "classes/td";
 
-@import "components/header";
+// @import "components/header";
+@import "components/header-custom";
 @import "components/navigation-left";
+@import "components/search";
+@import "components/contact-dropdown";
+@import "components/footer";
 
 @import "layouts/general";
 @import "layouts/home";
@@ -20,4 +24,5 @@
 	background-image: url('BlueGradBG.png');
 	background-repeat: repeat-x;
 	min-height: 100%;
+	padding-bottom: 0;
 }

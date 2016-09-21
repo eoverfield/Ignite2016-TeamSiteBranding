@@ -1,5 +1,30 @@
 
 #sideNavBox {
+	box-sizing: border-box;
+
+	// override SP styles because using bootstrap
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0 35px;
+	float: none;
+	width: 100%;
+
+	@media (min-width: 768px){
+		float: left;
+		width: 33.333333333%;
+		padding: 0;
+		.ms-core-sideNavBox-removeLeftMargin {
+			margin-left: 0;
+		}
+	}
+
+	@media (min-width: 992px){
+		float: left;
+		width: 16.666666667%;
+	}
+
+
+
 	.ms-core-navigation {
 		.ms-core-listMenu-item, 
 		.ms-core-listMenu-item:link, 
@@ -17,10 +42,6 @@
 	}
 
 	@media screen and (max-width: 768px) {
-		display: block;
-		width: auto;
-		float: none;
-
 		margin-bottom: 20px;
 	}
 }
