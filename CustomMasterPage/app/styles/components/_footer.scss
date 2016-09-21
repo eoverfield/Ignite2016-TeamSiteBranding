@@ -1,0 +1,38 @@
+#pm-footer {
+	background: $color-secondary;
+	color: $reverse-color;
+	
+	.inner {
+		box-sizing: border-box;
+		padding: 20px;
+		width: 80%;
+		margin: 0 auto;
+		@extend .clearfix;
+
+		@include respond-to( false, $breakpoint-small, false){
+			width: 100%;
+		}
+	}
+
+	#footer-logo {
+		display: inline-block;
+		float: right;
+		background: url('../SiteAssets/ContosoFooterHomeLogoWhite.png') no-repeat;
+		width: 189px;
+		height: 30px;
+	}
+
+	#footer-nav {
+		float: left;
+		margin-top: 3px;
+
+		A {
+			color: #fff;
+
+			&:hover, &:active, &:focus {
+				color: lighten($color-primary, 30%);
+			}
+		}
+	}
+
+}

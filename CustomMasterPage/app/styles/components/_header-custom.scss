@@ -1,0 +1,212 @@
+// Custom master page header styles
+// ------------------------------------
+#s4-titlerow {
+	height: auto;
+	padding-bottom: 0;
+}
+
+HEADER#pm-header {
+	padding-top: 5px;
+
+	
+	&:before {
+		display: block;
+		content: " ";
+		width: 10%;
+		height: 65px;
+		float: left;
+		background: url('GradLeft.png') repeat-y top right;
+
+		@include respond-to( false, $breakpoint-small, false){
+			display: none;
+		}
+	}
+
+	&:after {
+		display: block;
+		content: " ";
+		width: 10%;
+		height: 65px;
+		float: left;
+		background: url('GradRight.png') repeat-y top left;
+
+		@include respond-to( false, $breakpoint-small, false){
+			display: none;
+		}
+	
+	}
+
+	#pm-header-inner {
+		width: 80%;
+		float: left;
+		background: rgba(255,255,255,0.9);
+		position: relative;
+		height: 65px;
+
+		@include respond-to( false, $breakpoint-small, false){
+			width: 100%;
+		}
+		
+	}
+
+	#pm-logo {
+		width: 200px;
+		margin-right: 20px;
+		float: left;
+
+		@include respond-to( false, $breakpoint-small, false){ 
+			margin-right: 0;
+			width: 120px;
+		}
+	}
+
+	.pm-logo-img IMG {
+		margin: 5px 0 0 5px;
+
+		@include respond-to( false, $breakpoint-small, false){ 
+			width: 100%;
+			margin-top: 16px;
+		}
+	}
+
+	#pm-site-title {
+		position: absolute;
+		top: 40px;
+		left: 63px;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: bold;
+
+		@include respond-to( false, $breakpoint-small, false){ 
+			display: none;
+		}
+	}
+
+	.navbar-toggle {
+		background: $color-accent-2;
+		border: none !important;
+		outline: none !important;
+		width: 65px;
+		height: 65px;
+		font-size: 25px;
+		color: $reverse-color;
+		min-width: 0;
+		padding-top: 5px;
+		cursor: pointer;
+		float: right;
+		margin: 0;
+
+		&:hover {
+			background: lighten($color-accent-2, 10%);
+		}
+
+		@include respond-to($breakpoint-large-desktop, false, false){
+			display: none !important;
+		}
+
+	}
+
+	#pm-topnav {
+		float: right;
+	}
+	#DeltaTopNavigation {
+		display: none;
+		float: left;
+		position: relative;
+		
+		@include respond-to($breakpoint-large-desktop, false, false){
+			display: block;
+		}
+
+		UL {
+			LI {
+				text-transform: uppercase;
+				color: $link-color;
+				font-size: 1.2em;
+
+				A, A:visited {
+					color: $text-color;
+					display: inline-block;
+					padding-top: 20px;
+				}
+			}
+		}
+
+		.ms-listMenu-editLink {
+			position: absolute;
+			top: 0;
+			right: 0;
+			.ms-metadata {  // hide the "Edit Link" text
+				display: none;
+			}
+		}
+
+		&.mobile.pm-active {
+
+			display: block;
+			@extend %mobile-nav-absolute;
+			top: 65px;
+			left: 0;
+			background: rgba(255,255,255,.9);
+
+			.ms-core-listMenu-horizontalBox {
+				display: block;
+			}
+
+			UL {
+				display: block;
+				padding-bottom: 10px;
+				padding-left: 0;
+				margin: 0;
+
+				LI {
+					display: block;
+					A {
+						margin-left: 30px;
+						margin-bottom: 10px;
+						padding-top: 0;
+					}
+				}
+			}
+
+
+		}
+	}
+
+	#pm-toggles {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		float: left;
+
+		LI {
+			float: left;
+			font-size: 25px;
+
+			A {
+				display: block;
+				box-sizing: border-box;
+				float: left;
+				width: 65px;
+				height: 65px;
+				padding-top: 15px;
+				text-align: center;
+				color: $reverse-color;
+				background: $color-accent-1;
+
+				&:hover, &:active, &:focus {
+					background: lighten($color-accent-1, 10%);
+				}
+			}
+
+			&#contact-toggle A {
+				background: $color-primary;
+
+				&:hover, &:active, &:focus {
+					background: lighten($color-primary, 10%);
+				}
+			}
+		}
+	}
+
+}

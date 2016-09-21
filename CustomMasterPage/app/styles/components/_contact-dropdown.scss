@@ -1,0 +1,28 @@
+
+#pm-contact {
+	display: none;
+	clear: both;
+
+	&.pm-active {
+		display: block;
+		background: $color-primary;
+		color: $reverse-color;
+
+		.inner {
+			width: 80%;
+			margin: 0 auto;
+			padding: 20px;
+			box-sizing: border-box;
+			font-size: 16px;
+
+			@include respond-to( false, $breakpoint-small, false){ 
+				width: 100%;
+			}
+
+			
+		}
+		
+	}
+
+
+}

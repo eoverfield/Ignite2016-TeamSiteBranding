@@ -1,0 +1,54 @@
+
+#pm-search {
+	display: none;
+
+
+	.ms-srch-sb-border {
+		border: transparent;
+		background: rgba(255,255,255,.6);
+		display: block;
+	}
+	.ms-srch-sb-borderFocused {
+		border: transparent;
+		background: #fff;
+	}
+
+	&.pm-active {
+		display: block;
+		background: $color-accent-1;
+		clear: both;
+		padding: 20px;
+
+		.ms-mpSearchBox {
+			width: 100%;
+		}
+
+		#searchInputBox {
+			float: none;
+			margin-bottom: 0;
+
+			#SearchBox {
+				width: 80%;
+				margin: 0 auto;
+
+				@include respond-to( false, $breakpoint-small, false){ 
+					width: 100%;
+				}
+
+				.ms-srch-sb {
+					display: block;
+
+					& > INPUT {
+						width: 100%;
+						margin-right: -50px;
+						height: auto;
+						font-size: 16px;
+						color: $text-color;
+					}
+				}
+			}
+		}
+	}
+
+
+}
