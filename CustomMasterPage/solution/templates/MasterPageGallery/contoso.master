@@ -31,9 +31,9 @@
     <SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" runat="server" Localizable="false" />
     <SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" runat="server" Localizable="false" />
 
-    <link rel="stylesheet" type="text/css" href="/sites/marketing/SiteAssets/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://localhost:3000/SiteAssets/style.css" />
 
-    <script type="text/javascript" src="/sites/marketing/SiteAssets/header.js" />
+    <script type="text/javascript" src="https://localhost:3000/SiteAssets/header.js" />
 
     <SharePoint:CustomJSUrl runat="server" />
     <SharePoint:SoapDiscoveryLink runat="server" />

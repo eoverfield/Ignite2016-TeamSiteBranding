@@ -1,94 +1,97 @@
-SharePoint Branding Workshop - 2016
-==============
+# SharePoint Online Apply a Custom Master Page #
 
-This repository contains all of the source code for my SharePoint 2013/2016/O365 branding workshop presented in 2016.
+This is demonstration code on how to set a custom Master Page within SharePoint Online using PnP PowerShell. This is a proof of concept for demo purposes, the custom Master Page updates themselves could have been achieved with JavaScript and CSS alone.
+This PowerShell script opens a SharePoint Online site, uploads necessary assets to an assets site, i.e. a site collection root site and then sets the custom Master Page.
 
-#Installing pre-reqs
+Concepts and code adapted from the following resources. A big thank you to the Microsoft PnP team for doing all of the heavy lifting in providing not only the PnP project, but also the CSS, JS and other assets used in this demo.
+<a href="https://github.com/OfficeDev/PnP-Tools/tree/master/Solutions/SharePoint.UI.Responsive">https://github.com/OfficeDev/PnP-Tools/tree/master/Solutions/SharePoint.UI.Responsive</a>.
+
+>**Note**: This is an **Open Source** project, and any contribution from the community
+is more than welcome. 
+	
+# Setup Instructions #
+In order to setup the solution and to apply a custom theme on a target Web, you simply need to:
+* [Download the files included in this solution](#download)
+* [Setup software requirements](#requirements)
+* [Execute the *Set-Level3Branding.ps1* cmdlet within the solution folder](#execute)
+
+<a name="download"></a>
+## Download the files
+You can download the files manually, one by one, or you can download the entire branch
+
+<a name="requirements"></a>
+## Setup software requirements
+This solution requires the OfficeDevPnP.PowerShell commands, which you can install
+from the following link:
+
+* <a href="https://github.com/OfficeDev/PnP-PowerShell/releases">OfficeDevPnP.PowerShell Release - Minumum relase for this script - version 2.7.1609.3 or later</a>
+
+If you want, you can also read the following 
+<a href="https://github.com/OfficeDev/PnP-PowerShell#installation">instructions</a>
+for further details about installing OfficeDevPnP.PowerShell.
+
+# Installing pre-reqs #
 
 Install NodeJs
 Install Ruby
 Install Sass
-Install Git
-	add to path, i.e.
-		$env:path += ";E:\Program Files (x86)\Git\bin\Git\bin"
-
-Install Bower
-	npm install -g bower
 Install gulp-cli (or grunt, but webapp by Yeoman team uses gulp)
 	npm install -g gulp-cli
-
-Install bower (package manager)
-	npm install -g bower
 	
-Install Yeoman globally
-	npm install -g yo
-	
-Install Yeoman webapp generator globally
-	npm install -g generator-webapp
-	
-Change to the folder you want to create your new local SP app
-	lots of generators out there (https://github.com/yeoman/generator-webapp)
-	yo webapp
-	possibly
-		npm install
-		bower install
-		
-Change gulpfile.babel.js
-	add https: true and remove port for "serve"
-	
-	
-#Changes made
+The pre-reqs are necessary if you want to re-compile css and js included in this package, or if you want to serve files locally for testing. Once the pre-reqs are installed, execute the comment:
+*gulp serve*
+from this folder.
 
-Once the Yeoman app was created, I added a grunt file to use Grunt instead of Gulp. I like Grunt's sass implemenation better.
+<a name="execute"></a>
+## Execute the *Set-Level3Branding.ps1* cmdlet
+Once you have installed the OfficeDevPnP.PowerShell commands, you can simply open a 
+PowerShell console, go to the path where you stored the files, look within the "solution" folder and execute the *Set-Level3Branding.ps1*
+cmdlet, which is included in the
+<a href="./solution/Set-Level3Branding.ps1">solution/Set-Level3Branding.ps1</a> script file of this solution.
 
-So after cloning this project run the following commands in PowerShell
+The *Set-Level3Branding* cmdlet accepts the following parameters:
+* **targetWebUrl**: it is a mandatory parameter, which declares what web to apply the custom components, like for example: https://intranet.mydomain.com/sites/targetSite
+* **TargetSiteUrl**: it is an optional parameter, which declares the web where components assets including the CSS/JS/Images. If this parameter is not provided, then TargetWebUrl is assumed as the provisions asset site as well, such as: https://intranet.mydomain.com/sites/targetSite\\
+* **Credentials**: it is an optional parameter, which defines the user credentials that will be used to authenticate against both the target Site Collection and the infrastructure Site Collection, if any. Should be the credentials of a user, who is Site Collection Administrator for the target Site Collections. If you don't provide this parameter, the script will directly prompt you for credentials.
+* **ServeLocal**: it is an optional parameter, default is false. If $true, then SharePoint will be told to look at the localhost for serving JS and CSS files during development. If $true, be sure to execute "gulp serve" within this folder to spin up the local web server.
 
-npm install
+Here you can see a couple of examples about how to invoke the *Set-Level3Branding* cmdlet:
 
-bower install
+###EXAMPLE 1
+```PowerShell
+PS C:\> $creds = Get-Credential
+PS C:\> .\Set-Level3Branding.ps1 -TargetWebUrl "https://intranet.mydomain.com/sites/targetSite" -Credentials $creds -ServeLocal $true
+```
 
-grunt
+The example above provisions assets to the site collection root web, https://intranet.mydomain.com/sites/targetSite, uses the credentials pre-provided with Get-Credential, and also has SharePoint set to direct browsers to the localhost for custom CSS/JS/Images.
 
-This will take what is in the app folder, including css and js and compile to .tmp folder. .tmp folder contains what we want SP to use.
+###EXAMPLE 2
+```PowerShell
+PS C:\> $creds = Get-Credential
+PS C:\> .\Set-Level3Branding.ps1 -TargetSiteUrl "https://intranet.mydomain.com/sites/targetSite" -Credentials $creds
+```
 
+The example above provisions assets to the same location as where the custom components should be applied. The user's credentials are  provided through the *$creds* variable and SharePoint will host the custom files as well.
 
-#Other notes
+<a name="disable"></a>
+# Disable the custom Master Page#
+The *Set-Level3Branding* cmdlet accepts the following parameters:
+* **targetWebUrl**: it is a mandatory parameter, which declares what web to deactivate the custom components, for example: https://intranet.mydomain.com/sites/targetSite
+* **Credentials**: it is an optional parameter, which defines the user credentials that will be used to authenticate against both the target Site Collection and the infrastructure Site Collection, if any. Should be the credentials of a user, who is Site Collection Administrator for the target Site Collections. If you don't provide this parameter, the script will directly prompt you for credentials.
 
-##PnP Responsive UI
+###EXAMPLE 1
+```PowerShell
+PS C:\> $creds = Get-Credential
+PS C:\> .\Disable-Level3Branding.ps1 -TargetWebUrl "https://intranet.mydomain.com/sites/targetSite" -Credentials $creds
 
-Installing SPO PowerShell
-	https://technet.microsoft.com/en-us/library/fp161362(v=office.15).aspx
-	
-Installing PnP PowerShell
-	https://github.com/OfficeDev/PnP-PowerShell
-		get Setup files from
-			https://github.com/officedev/pnp-powershell/releases
-			PnPPowerShellCommands16.msi for SPO
-		
-		in PS, running as admin
-			Invoke-Expression (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/OfficeDev/PnP-PowerShell/master/Samples/Modules.Install/Install-OfficeDevPnPPowerShell.ps1')
+<a name="overview"></a>
+# Solution Overview #
+The solution leverages the PnP to upload and set a custom Master Page.
 
-Ensure can execute scripts
-	Set-ExecutionPolicy RemoteSigned
+# Helpful Links #
 
-PnP Example provision template
-	https://github.com/OfficeDev/PnP-Provisioning-Schema/tree/master/Samples
-	
-PnP Provisioning Schema
-	https://github.com/OfficeDev/PnP-Provisioning-Schema/blob/master/ProvisioningSchema-2015-12.md
-	
-PnP Responsive Package
-	https://github.com/OfficeDev/PnP-Tools/tree/master/Solutions/SharePoint.UI.Responsive
-	
+PnP Deploying Custom Theming Inspiration Project
+https://github.com/OfficeDev/PnP/tree/master/Samples/Branding.DeployCustomThemeWeb
 
-#PS commands to provision IA - need to be able to execute Connect-SPOnline
-#install common IA
-Set-ExecutionPolicy RemoteSigned
-$creds = Get-Credential
-.\provisionIA.ps1 -TargetSiteUrl "https://pixelmill.sharepoint.com/sites/demo-branding-workshop" -Credentials $creds
-
-
-#to installed responsive UI components - from SharePoint.UI.Responsive folder
-$creds = Get-Credential
-.\Enable-SPResponsiveUI.ps1 -TargetSiteUrl "https://pixelmill.sharepoint.com/sites/demo-branding-workshop" -Credentials $creds
-.\Disable-SPResponsiveUI.ps1 -TargetSiteUrl "https://pixelmill.sharepoint.com/sites/demo-branding-workshop" -Credentials $creds
+PnP Responsive UI Inspiration Project
+https://github.com/OfficeDev/PnP-Tools/tree/master/Solutions/SharePoint.UI.Responsive
